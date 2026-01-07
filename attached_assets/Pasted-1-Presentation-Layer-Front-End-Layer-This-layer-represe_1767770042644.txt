@@ -1,0 +1,121 @@
+1. Presentation Layer (Front-End Layer)
+
+This layer represents the web-based interface used by companies.
+
+Components
+
+User Login & Authentication UI
+
+Study Creation Interface
+
+Live Response Monitoring Dashboard
+
+Analytics & Visualization Screens
+
+Report Download Interface
+
+Technologies Used
+
+React.js / Next.js
+
+Tailwind CSS
+
+Chart.js / Recharts
+
+Responsibilities
+
+Captures user inputs such as survey questions and study configurations
+
+Displays real-time charts, metrics, and AI-generated insights
+
+Sends requests to backend APIs
+
+Ensures a responsive and user-friendly experience
+
+This layer does not contain business logic; it only handles interaction and visualization.
+
+2. Application Layer (Backend / Business Logic Layer)
+
+This layer acts as the core controller of the company dashboard.
+
+Components
+
+Authentication & Authorization Service
+
+Study Management Service
+
+Response Aggregation Service
+
+Analytics Request Handler
+
+Report Generation Service
+
+Technologies Used
+
+Python (FastAPI / Django REST Framework)
+
+JWT-based authentication
+
+Responsibilities
+
+Validates company users and permissions
+
+Processes study creation requests
+
+Fetches and aggregates response data
+
+Communicates with the AI Analytics Engine
+
+Formats data for dashboard visualization
+
+Generates downloadable reports
+
+This layer ensures that all dashboard actions follow system rules and security policies.
+
+3. Data & Analytics Layer
+
+This layer manages data storage, retrieval, and analysis results used by the dashboard.
+
+Components
+
+Relational Database (PostgreSQL)
+
+NoSQL Database (MongoDB)
+
+Cache & Queue System (Redis)
+
+AI Analytics Engine
+
+Responsibilities
+
+Stores study configurations and metadata
+
+Stores validated respondent data
+
+Retrieves aggregated insights
+
+Supplies real-time data to the dashboard
+
+Caches frequently accessed metrics for performance
+
+4. Integration Layer (External & Internal Services)
+
+This layer connects the company dashboard with other system modules.
+
+Integrated Services
+
+Respondent data pipeline
+
+AI analytics service
+
+Notification system
+
+Admin monitoring tools
+
+Responsibilities
+
+Fetches live updates from respondent channels
+
+Syncs AI-generated insights
+
+Ensures seamless data flow across modules
