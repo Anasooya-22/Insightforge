@@ -4,39 +4,37 @@ import { KPICard } from "@/components/dashboard/kpi-card";
 import { RevenueChart } from "@/components/dashboard/revenue-chart";
 import { RecentActivity } from "@/components/dashboard/recent-activity";
 import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Plus, BarChart2, Activity, Download } from "lucide-react";
 
 const kpiData = [
   {
-    title: "Total Revenue",
-    value: "$45,231.89",
-    change: "+20.1%",
+    title: "Total Responses",
+    value: "12,482",
+    change: "+12.5%",
     trend: "up" as const,
     data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 100) + 50 })),
   },
   {
-    title: "Subscriptions",
-    value: "+2350",
-    change: "+180.1%",
+    title: "Active Studies",
+    value: "24",
+    change: "+3",
     trend: "up" as const,
-    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 100) + 20 })),
+    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 20) + 10 })),
   },
   {
-    title: "Bounce Rate",
-    value: "12.23%",
-    change: "-4.5%",
-    trend: "down" as const, // Down is good for bounce rate usually, but visually we want red if it's "bad" or green if it's "good". Let's stick to standard color meaning: Green = Good, Red = Bad.
-    // Wait, usually Green UP is good. Red DOWN is bad.
-    // For Bounce Rate, lower is better. So a negative change is GOOD (Green).
-    // Let's adjust the KPICard logic later if needed, for now let's assume this is "Sales" for simplicity or just interpret colors directly.
-    // Let's change this to "Active Now"
-    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 100) })),
+    title: "Avg. Completion Rate",
+    value: "68.2%",
+    change: "+4.1%",
+    trend: "up" as const,
+    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 30) + 60 })),
   },
   {
-    title: "Active Now",
-    value: "+573",
-    change: "+201 since last hour",
+    title: "AI Insights Generated",
+    value: "154",
+    change: "+42",
     trend: "up" as const,
-    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 100) + 80 })),
+    data: Array.from({ length: 10 }, () => ({ value: Math.floor(Math.random() * 50) + 100 })),
   },
 ];
 
@@ -62,18 +60,24 @@ export default function Dashboard() {
       <div className="flex-1 flex flex-col">
         <Header />
         <main className="flex-1 p-6 md:p-8 overflow-y-auto">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
             <div>
-              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">Dashboard</h1>
-              <p className="text-muted-foreground mt-1">Overview of your key performance indicators.</p>
+              <div className="flex items-center gap-2 mb-1">
+                <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
+                <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Live Monitoring</span>
+              </div>
+              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">Nexus AI Dashboard</h1>
+              <p className="text-muted-foreground mt-1 text-sm">Real-time response aggregation and AI-driven insights.</p>
             </div>
-            <div className="flex items-center gap-2">
-              <button className="px-4 py-2 bg-background border border-border rounded-md text-sm font-medium hover:bg-accent transition-colors">
+            <div className="flex items-center gap-3">
+              <Button variant="outline" className="gap-2">
+                <Download className="h-4 w-4" />
                 Download Report
-              </button>
-              <button className="px-4 py-2 bg-primary text-primary-foreground rounded-md text-sm font-medium hover:bg-primary/90 transition-colors shadow-sm">
-                Add Widget
-              </button>
+              </Button>
+              <Button className="gap-2 shadow-sm bg-primary">
+                <Plus className="h-4 w-4" />
+                New Study
+              </Button>
             </div>
           </div>
 
@@ -91,25 +95,36 @@ export default function Dashboard() {
               ))}
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-              <motion.div variants={item} className="col-span-4">
+            <div className="grid gap-4 lg:grid-cols-7">
+              <motion.div variants={item} className="lg:col-span-4">
                 <RevenueChart />
               </motion.div>
-              <motion.div variants={item} className="col-span-3">
+              <motion.div variants={item} className="lg:col-span-3">
                 <RecentActivity />
               </motion.div>
             </div>
             
             <div className="grid gap-4 md:grid-cols-3">
-                 {/* Placeholder for future widgets to show layout modularity */}
-                 <motion.div variants={item} className="h-64 rounded-lg border border-border border-dashed flex items-center justify-center text-muted-foreground bg-muted/20">
-                    <span className="text-sm">Widget Placeholder</span>
+                 <motion.div variants={item} className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card transition-all duration-300 shadow-sm cursor-pointer">
+                    <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                      <BarChart2 className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display font-semibold mb-2">Study Creation</h3>
+                    <p className="text-sm text-muted-foreground">Configure new surveys and study parameters with AI assistance.</p>
                  </motion.div>
-                 <motion.div variants={item} className="h-64 rounded-lg border border-border border-dashed flex items-center justify-center text-muted-foreground bg-muted/20">
-                    <span className="text-sm">Widget Placeholder</span>
+                 <motion.div variants={item} className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card transition-all duration-300 shadow-sm cursor-pointer">
+                    <div className="h-10 w-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
+                      <Activity className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display font-semibold mb-2">Live Responses</h3>
+                    <p className="text-sm text-muted-foreground">Monitor respondent data pipeline and demographic synchronization.</p>
                  </motion.div>
-                 <motion.div variants={item} className="h-64 rounded-lg border border-border border-dashed flex items-center justify-center text-muted-foreground bg-muted/20">
-                    <span className="text-sm">Widget Placeholder</span>
+                 <motion.div variants={item} className="group p-6 rounded-xl border border-border bg-card/50 hover:bg-card transition-all duration-300 shadow-sm cursor-pointer">
+                    <div className="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                      <Plus className="h-5 w-5" />
+                    </div>
+                    <h3 className="font-display font-semibold mb-2">AI Config</h3>
+                    <p className="text-sm text-muted-foreground">Adjust sentiment analysis thresholds and aggregation logic.</p>
                  </motion.div>
             </div>
           </motion.div>

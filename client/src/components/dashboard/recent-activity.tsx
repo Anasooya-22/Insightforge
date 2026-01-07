@@ -3,55 +3,60 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 
 const activities = [
   {
-    user: "Alice Smith",
-    action: "subscribed to",
-    target: "Pro Plan",
+    user: "AI Engine",
+    action: "identified sentiment shift in",
+    target: "Millennial Study",
     time: "2 minutes ago",
-    avatar: "AS",
+    avatar: "AI",
+    type: "system"
   },
   {
-    user: "Bob Jones",
-    action: "purchased",
-    target: "Enterprise License",
+    user: "Data Pipeline",
+    action: "synced 500 new responses from",
+    target: "Global Outreach",
     time: "15 minutes ago",
-    avatar: "BJ",
+    avatar: "DP",
+    type: "system"
   },
   {
     user: "Charlie Day",
-    action: "commented on",
-    target: "Q3 Report",
+    action: "approved AI summary for",
+    target: "Q3 Insights",
     time: "1 hour ago",
     avatar: "CD",
+    type: "user"
   },
   {
     user: "Diana Prince",
-    action: "updated",
-    target: "Profile Settings",
+    action: "updated aggregation logic for",
+    target: "Customer Feedback",
     time: "3 hours ago",
     avatar: "DP",
+    type: "user"
   },
   {
-    user: "Evan Wright",
-    action: "deployed",
-    target: "v2.4.0",
+    user: "Report Service",
+    action: "generated PDF report for",
+    target: "Internal Audit",
     time: "5 hours ago",
-    avatar: "EW",
+    avatar: "RS",
+    type: "system"
   },
 ];
 
 export function RecentActivity() {
   return (
-    <Card className="col-span-3 border-none shadow-sm">
+    <Card className="col-span-3 border-none shadow-sm h-full">
       <CardHeader>
-        <CardTitle className="font-display">Recent Activity</CardTitle>
-        <CardDescription>Latest actions across the platform</CardDescription>
+        <CardTitle className="font-display">Live Feed</CardTitle>
+        <CardDescription>Real-time system and user events</CardDescription>
       </CardHeader>
       <CardContent>
         <div className="space-y-8">
           {activities.map((activity, index) => (
             <div key={index} className="flex items-center">
-              <Avatar className="h-9 w-9 bg-primary/10 text-primary border border-primary/20">
-                <AvatarFallback>{activity.avatar}</AvatarFallback>
+              <Avatar className={`h-9 w-9 ${activity.type === 'system' ? 'bg-primary/5 text-primary border-primary/10' : 'bg-muted text-muted-foreground border-muted-foreground/10'} border`}>
+                <AvatarFallback className="text-[10px] font-bold">{activity.avatar}</AvatarFallback>
               </Avatar>
               <div className="ml-4 space-y-1">
                 <p className="text-sm font-medium leading-none">
