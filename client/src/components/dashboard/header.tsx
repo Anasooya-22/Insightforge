@@ -26,12 +26,12 @@ export function Header() {
         <div className="h-8 w-px bg-border/50 mx-1"></div>
         <div className="flex items-center gap-3">
           <div className="text-right hidden sm:block">
-            <p className="text-sm font-medium leading-none">John Doe</p>
+            <p className="text-sm font-medium leading-none">Robb Stark</p>
             <p className="text-xs text-muted-foreground">Product Manager</p>
           </div>
           <Avatar className="h-8 w-8 border border-border">
             <AvatarImage src="https://github.com/shadcn.png" />
-            <AvatarFallback>JD</AvatarFallback>
+            <AvatarFallback>RS</AvatarFallback>
           </Avatar>
         </div>
       </div>
