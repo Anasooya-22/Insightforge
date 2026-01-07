@@ -35,7 +35,7 @@ export function Sidebar() {
           <div className="h-6 w-6 rounded-sm bg-primary flex items-center justify-center">
             <Layers className="h-3.5 w-3.5 text-white" />
           </div>
-          Nexus AI
+          Insight Forge
         </div>
       </div>
       

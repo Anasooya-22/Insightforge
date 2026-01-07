@@ -66,7 +66,7 @@ export default function Dashboard() {
                 <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
                 <span className="text-[10px] font-bold uppercase tracking-wider text-emerald-600">Live Monitoring</span>
               </div>
-              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">Nexus AI Dashboard</h1>
+              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">Insight Forge Dashboard</h1>
               <p className="text-muted-foreground mt-1 text-sm">Real-time response aggregation and AI-driven insights.</p>
             </div>
             <div className="flex items-center gap-3">
