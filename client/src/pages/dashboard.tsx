@@ -15,8 +15,12 @@ import {
   ShieldCheck, 
   Layers, 
   Zap, 
-  RefreshCcw 
+  RefreshCcw,
+  FileText,
+  Search,
+  Layout
 } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const kpiData = [
   {
@@ -77,26 +81,26 @@ export default function Dashboard() {
               <div className="flex items-center gap-3 mb-2">
                 <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
                   <RefreshCcw className="h-3 w-3 animate-spin-slow" />
-                  <span className="text-[10px] font-bold uppercase tracking-wider">Real-time Stream</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider">Live Monitoring</span>
                 </div>
                 <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-600 border border-blue-500/20">
                   <ShieldCheck className="h-3 w-3" />
                   <span className="text-[10px] font-bold uppercase tracking-wider">RBAC Secure</span>
                 </div>
               </div>
-              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">Insight Forge</h1>
+              <h1 className="text-3xl font-display font-bold tracking-tight text-foreground">InsightForge LIVE</h1>
               <p className="text-muted-foreground mt-1 text-sm max-w-2xl">
-                Modular BI architecture with decoupled AI analytics and secure data synchronization.
+                Real-time BI Dashboard for Study Management, Response Aggregation, and AI-Driven Insights.
               </p>
             </div>
             <div className="flex items-center gap-3">
               <Button variant="outline" className="gap-2 border-border/60 hover:bg-accent/50">
                 <Download className="h-4 w-4" />
-                Export
+                Download Report
               </Button>
               <Button className="gap-2 shadow-lg shadow-primary/20 bg-primary hover:bg-primary/90">
                 <Plus className="h-4 w-4" />
-                Deploy Study
+                New Study
               </Button>
             </div>
           </div>
@@ -116,6 +120,52 @@ export default function Dashboard() {
               ))}
             </div>
 
+            {/* Feature Mapping Area */}
+            <div className="grid gap-6 lg:grid-cols-3 mb-8">
+              <motion.div variants={item}>
+                 <Card className="border-none shadow-sm hover:shadow-md transition-all duration-300">
+                    <CardHeader className="pb-2">
+                      <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-2">
+                        <Layout className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="text-lg font-display">Study Creation</CardTitle>
+                      <CardDescription>Interface for survey questions and configurations</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-sm text-muted-foreground">
+                       Map survey questions directly to the Application Layer via Study Management Service.
+                    </CardContent>
+                 </Card>
+              </motion.div>
+              <motion.div variants={item}>
+                 <Card className="border-none shadow-sm hover:shadow-md transition-all duration-300">
+                    <CardHeader className="pb-2">
+                      <div className="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-2">
+                        <Activity className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="text-lg font-display">Response Monitoring</CardTitle>
+                      <CardDescription>Real-time metrics and respondent pipelines</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-sm text-muted-foreground">
+                       Displays real-time charts synced with the Response Aggregation Service.
+                    </CardContent>
+                 </Card>
+              </motion.div>
+              <motion.div variants={item}>
+                 <Card className="border-none shadow-sm hover:shadow-md transition-all duration-300">
+                    <CardHeader className="pb-2">
+                      <div className="h-10 w-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 mb-2">
+                        <BrainCircuit className="h-5 w-5" />
+                      </div>
+                      <CardTitle className="text-lg font-display">AI Visualizations</CardTitle>
+                      <CardDescription>Insights derived from the AI Analytics Engine</CardDescription>
+                    </CardHeader>
+                    <CardContent className="text-sm text-muted-foreground">
+                       Visualizes complex data patterns processed by the AI Request Handler.
+                    </CardContent>
+                 </Card>
+              </motion.div>
+            </div>
+
             {/* Main Content Area */}
             <div className="grid gap-4 lg:grid-cols-7">
               <motion.div variants={item} className="lg:col-span-4">
@@ -132,35 +182,32 @@ export default function Dashboard() {
                     <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
                       <Layers className="h-5 w-5" />
                     </div>
-                    <h3 className="font-display font-semibold mb-2">Modular Core</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Separated concerns between presentation and application layers for maximum scalability.</p>
-                    <div className="absolute top-2 right-2 opacity-20 group-hover:opacity-100 transition-opacity">
-                      <Zap className="h-3 w-3 text-primary" />
-                    </div>
+                    <h3 className="font-display font-semibold mb-2 text-sm">Modular & Scalable</h3>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">Separated concerns between presentation and application layers for maximum growth potential.</p>
                  </motion.div>
 
                  <motion.div variants={item} className="group p-5 rounded-xl border border-border bg-card/40 hover:bg-card hover:border-emerald-500/30 transition-all duration-300 shadow-sm cursor-pointer">
                     <div className="h-10 w-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-600 mb-4 group-hover:scale-110 transition-transform">
-                      <Activity className="h-5 w-5" />
+                      <RefreshCcw className="h-5 w-5" />
                     </div>
-                    <h3 className="font-display font-semibold mb-2">Real-time Stream</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Integrated pipeline for sub-second synchronization of respondent data across all nodes.</p>
+                    <h3 className="font-display font-semibold mb-2 text-sm">Real-time Core</h3>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">Integrated pipeline for sub-second synchronization of respondent data across nodes.</p>
                  </motion.div>
 
                  <motion.div variants={item} className="group p-5 rounded-xl border border-border bg-card/40 hover:bg-card hover:border-indigo-500/30 transition-all duration-300 shadow-sm cursor-pointer">
                     <div className="h-10 w-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-600 mb-4 group-hover:scale-110 transition-transform">
                       <BrainCircuit className="h-5 w-5" />
                     </div>
-                    <h3 className="font-display font-semibold mb-2">AI Integration</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Direct API connectivity to the analytics engine for automated insight extraction.</p>
+                    <h3 className="font-display font-semibold mb-2 text-sm">AI Integration</h3>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">Direct API connectivity to the analytics engine for automated insight extraction.</p>
                  </motion.div>
 
-                 <motion.div variants={item} className="group p-5 rounded-xl border border-border bg-card/40 hover:bg-card hover:border-amber-500/30 transition-all duration-300 shadow-sm cursor-pointer">
-                    <div className="h-10 w-10 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-600 mb-4 group-hover:scale-110 transition-transform">
+                 <motion.div variants={item} className="group p-5 rounded-xl border border-border bg-card/40 hover:bg-card hover:border-blue-500/30 transition-all duration-300 shadow-sm cursor-pointer">
+                    <div className="h-10 w-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-600 mb-4 group-hover:scale-110 transition-transform">
                       <ShieldCheck className="h-5 w-5" />
                     </div>
-                    <h3 className="font-display font-semibold mb-2">RBAC Security</h3>
-                    <p className="text-xs text-muted-foreground leading-relaxed">Role-based access controls enforcing strict isolation and data integrity.</p>
+                    <h3 className="font-display font-semibold mb-2 text-sm">Secure RBAC</h3>
+                    <p className="text-[11px] text-muted-foreground leading-relaxed">Role-based access controls enforcing strict isolation and data integrity.</p>
                  </motion.div>
             </div>
           </motion.div>
