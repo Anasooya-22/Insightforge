@@ -10,6 +10,9 @@ import LiveResponses from "@/pages/live-responses";
 import Analytics from "@/pages/analytics";
 import Reports from "@/pages/reports";
 import Settings from "@/pages/settings";
+import SurveyPage from "./pages/SurveyPage";
+
+
 
 function Router() {
   return (
@@ -20,6 +23,7 @@ function Router() {
       <Route path="/analytics" component={Analytics} />
       <Route path="/reports" component={Reports} />
       <Route path="/settings" component={Settings} />
+      <Route path="/survey" component={SurveyPage} />
       <Route component={NotFound} />
     </Switch>
   );

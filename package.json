@@ -4,23 +4,15 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "dev:client": "vite dev --port 5000",
-    "dev": "vite dev --port 5000",
+    "dev": "vite",
+    "dev:client": "vite dev",
     "dev:server": "cross-env NODE_ENV=development tsx server/index.ts",
-    "dev:watch": "concurrently -k -n 'Server,Client' -'cross-env NODE_ENV=development tsx server/index.ts' 'vite dev --port 5000'",
-    "dev:watch:server": "concurrently -k -n 'Server' 'cross-env NODE_ENV=development tsx server/index.ts'",
-"dev:watch:client": "concurrently -k -n 'Client' 'vite dev --port 5000'",
-"build": "tsc && vite build",
+    "dev:full": "concurrently \"cross-env NODE_ENV=development tsx server/index.ts\" \"vite dev\"",
+    "build": "tsc && vite build",
     "start": "node dist/server/index.js",
     "lint": "eslint . --ext .ts,.tsx",
     "format": "prettier --write ."
   },
-
-  
-
-
-
-
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
     "@jridgewell/trace-mapping": "^0.3.25",
@@ -69,7 +61,7 @@
     "next-themes": "^0.4.6",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0",
-    "pg": "^8.16.3",
+    "pg": "^8.19.0",
     "react": "^19.2.0",
     "react-day-picker": "^9.11.1",
     "react-dom": "^19.2.0",
@@ -103,7 +95,7 @@
     "@vitejs/plugin-react": "^5.0.4",
     "autoprefixer": "^10.4.21",
     "cross-env": "^10.1.0",
-    "drizzle-kit": "^0.18.1",
+    "drizzle-kit": "^0.31.9",
     "esbuild": "^0.25.0",
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.14",
